@@ -3,9 +3,7 @@ body {
 }
 
 div {
-    -webkit-box-sizing: border-box; /* safari, chrome */
-    -moz-box-sizing: border-box; /* firefox */
-    box-sizing: border-box; /* ie8+, opera */
+    box-sizing: border-box; 
 }
 
 #top-section
@@ -14,11 +12,27 @@ div {
     background-color: #00FF00;
 }
 
-
-#middle-section
+#bottom-section
 {
     background-color: #ff0000;
     min-height: 500px;
     margin: 0;
     padding: 100px 0;
 }
+
+table {
+    font-family: arial, sans-serif;
+    border-collapse: collapse;
+    width: 100%;
+}
+
+td, th {
+    border: 1px solid #dddddd;
+    text-align: left;
+    padding: 8px;
+}
+
+tr {
+    background-color: #ffffff;
+}
+

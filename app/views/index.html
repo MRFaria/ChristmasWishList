@@ -1,0 +1,19 @@
+{% extends "layout.html" %}
+
+{% block body_top %}
+<div id="top-section-text">
+  <h1>Christmas Lists!</h1>
+</div>
+{% endblock %}
+
+
+{% block body_bottom %}
+  <h3>Get it right this time guys!</h3>
+  <div id="bottom-section-text">
+    <form action="lists">
+      First name:<br>
+      <input type="text" name="firstname" value="Mickey"><br>
+      <input type="submit" value="Submit">
+    </form> 
+  </div>
+{% endblock %}

@@ -1,6 +1,7 @@
 import cherrypy
 import os
-from controllers import home
+from app.controllers import controller
+from app.models import model
 
 if __name__ == '__main__':
     conf = {
@@ -16,10 +17,12 @@ if __name__ == '__main__':
     }
     # Register the SQLAlchemy plugin
     from plugins.sql_alchemy.saplugin import SAEnginePlugin
-    SAEnginePlugin(cherrypy.engine, 'sqlite:///my.db').subscribe()
+    SAEnginePlugin(cherrypy.engine, 'sqlite:///my.db', model.Base.metadata).subscribe()
 
     # Register the SQLAlchemy tool
     from plugins.sql_alchemy.satool import SATool
     cherrypy.tools.db = SATool()
 
-    cherrypy.quickstart(home.HomeController(), '/', conf)
+    cherrypy.tree.mount(controller.HomeController(), '/', conf)
+    cherrypy.engine.start()
+    cherrypy.engine.block()

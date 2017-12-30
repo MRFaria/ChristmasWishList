@@ -1,0 +1,27 @@
+{% extends "layout.html" %}
+
+{% block body_top %}
+<div id="top-section-text">
+  <h1>{{ firstname }}'s Lists</h1>
+</div>
+{% endblock %}
+
+
+{% block body_bottom %}
+<table>
+  <tr>
+    {% for person in people %}
+    <th>{{person.name}}</th>
+    {% endfor %}
+  </tr>
+  
+  {% for person in people %}
+  <tr>
+    {% for gift in person.wishlist %}
+    <td>{{gift}}</td>
+    {% endfor %}
+  </tr>
+  {% endfor %}
+</table>
+{% endblock %}
+
